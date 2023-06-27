@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "barberpro-d6c2a": {
+      "hosting": {
+        "BarberPro": [
+          "barberpro"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "barberpro-d6c2a"
+  }
+}

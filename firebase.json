@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "BarberPro",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
