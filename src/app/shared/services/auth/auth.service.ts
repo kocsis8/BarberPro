@@ -1,23 +1,46 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { BehaviorSubject, map } from 'rxjs';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userLoggedIn: boolean;  
+
+  userLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isEmployee: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   userId: string;
-  constructor(private router: Router, private afAuth: AngularFireAuth) {
-      this.userLoggedIn = false;
+  authStateSubscription: any;
+ 
+  constructor(private router: Router, private afAuth: AngularFireAuth,  private userService: UserService) {
+    this.userLoggedIn.next(false);
       this.userId ="";
-      this.afAuth.onAuthStateChanged((user) => {              
+      this.isEmployee.next(false);
+      this.authStateSubscription = this.afAuth.onAuthStateChanged((user) => {              
           if (user) {
-              this.userLoggedIn = true;
-              this.userId = user.uid;
+            this.userLoggedIn.next(true);
+            this.userId = user.uid;
+
+            userService.userById(this.userId).pipe(
+              map((user: any) => {
+                if (user && typeof user.employee === 'boolean') {
+                  return user.employee;
+                } else {
+                  return false; // Alapértelmezett érték, ha nincs vagy hibás az employe mező
+                }
+              })
+            )
+            .subscribe(isEmployee => {
+              this.isEmployee.next(isEmployee);
+              console.log("isEmployee "+isEmployee);
+            });
+
           } else {
-              this.userLoggedIn = false;
-              this.userId ="";
+            this.userLoggedIn.next(false);
+            this.isEmployee.next(false);
+            this.userId ="";
           }
       });
   }
@@ -27,6 +50,7 @@ export class AuthService {
           .then(() => {
               console.log('Auth Service: loginUser: success');
               // this.router.navigate(['/dashboard']);
+              
           })
           .catch((error) => {
               console.log('Auth Service: login error...');
@@ -42,4 +66,16 @@ export class AuthService {
   signupUser(email: string, password: string): Promise<any> {
       return this.afAuth.createUserWithEmailAndPassword(email, password);         
   }
+
+  logout() {
+
+   
+    this.userLoggedIn.next(false);
+    this.userId ="";
+    this.isEmployee.next(false);
+    this.router.navigate(['/login']); 
+    this.afAuth.signOut();
+
+  }
+
 }

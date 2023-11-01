@@ -4,8 +4,8 @@ import { AuthGuardService } from './shared/services/auth/auth.guard.service';
 
 const routes: Routes = [
   { 
-    path: 'main', 
-    loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule) 
+    path: 'login', 
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) 
   },
   { 
     path: 'not-found', 
@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/main',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   { path: 'gallery', loadChildren: () => import('./pages/gallery/gallery.module').then(m => m.GalleryModule) },
@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'contact', loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule) },
   { path: 'booking', loadChildren: () => import('./pages/booking/booking.module').then(m => m.BookingModule) , canActivate: [AuthGuardService] },
   { path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule) , canActivate: [AuthGuardService] },
+  { path: 'employees', loadChildren: () => import('./pages/employees/employees.module').then(m => m.EmployeesModule) , canActivate: [AuthGuardService] },
   { path: 'notification', loadChildren: () => import('./pages/notification/notification.module').then(m => m.NotificationModule) , canActivate: [AuthGuardService] },
   {
     path: '**',

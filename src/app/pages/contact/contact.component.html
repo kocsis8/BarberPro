@@ -1,1 +1,22 @@
-<p>contact works!</p>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Kapcsolat</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Név</mat-label>
+          <input matInput type="text" placeholder="Kérjük, adja meg a nevét" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>E-mail cím</mat-label>
+          <input matInput type="email" placeholder="Kérjük, adja meg az e-mail címét" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Üzenet</mat-label>
+          <textarea matInput placeholder="Kérjük, írja meg az üzenetét" formControlName="message"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Küldés</button>
+      </form>
+    </mat-card-content>
+  </mat-card>

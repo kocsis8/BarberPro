@@ -41,8 +41,7 @@ export class RegisterComponent implements OnInit {
           firstname: this.signupForm.get('firstname')?.value,
           lastname: this.signupForm.get('lastname')?.value
         },
-        phone: '',
-        employe: false
+        employee: false
       }
       this.userService.create(user).then(_ => {
         console.log('hozzáadás sikeres');
