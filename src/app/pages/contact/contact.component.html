@@ -1,22 +1,60 @@
-<mat-card>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" style="height: 100%;" class="background" fxLayoutAlign="center center">
+  <div fxFlex="50%" fxFlex.xs="100%" fxLayoutAlign="center center">
+  <mat-card style="align-items: flex-start; width: fit-content;">
+  <p>
     <mat-card-header>
-      <mat-card-title>Kapcsolat</mat-card-title>
+      <mat-card-title>Küldj nekünk emailt</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+  </p>    
+    <mat-card-content>  
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <p>
         <mat-form-field>
           <mat-label>Név</mat-label>
           <input matInput type="text" placeholder="Kérjük, adja meg a nevét" formControlName="name">
         </mat-form-field>
+      </p>
+      <p>
         <mat-form-field>
           <mat-label>E-mail cím</mat-label>
           <input matInput type="email" placeholder="Kérjük, adja meg az e-mail címét" formControlName="email">
         </mat-form-field>
+      </p>
+      <p>  
         <mat-form-field>
           <mat-label>Üzenet</mat-label>
           <textarea matInput placeholder="Kérjük, írja meg az üzenetét" formControlName="message"></textarea>
         </mat-form-field>
+      </p>  
         <button mat-raised-button color="primary" type="submit">Küldés</button>
       </form>
     </mat-card-content>
   </mat-card>
+  </div>
+  <div fxFlex="50%" fxFlex.xs="100%" fxLayoutAlign="center center">
+  <mat-card style="align-items: flex-start; width: fit-content;">
+    <mat-card-header>
+      <mat-card-title>Nyitvatartás</mat-card-title>
+    </mat-card-header>
+      <mat-card-content>  
+        <mat-list>
+          <mat-list-item>Hetfő 10-22</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Kedd 10-22</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Szerda 10-22</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Csütörtök 10-22</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Péntek 10-22</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Szombat 10-22</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Vasárnap Zárva</mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+

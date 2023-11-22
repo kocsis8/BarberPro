@@ -7,6 +7,12 @@ import {  MatCardModule } from '@angular/material/card';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './contact.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+
 
 
 @NgModule({
@@ -19,7 +25,16 @@ import { ContactComponent } from './contact.component';
     MatCardModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule,
+    FlexLayoutModule,
+    MatDividerModule,
+    MatListModule
+    ]
 })
 export class ContactModule { }

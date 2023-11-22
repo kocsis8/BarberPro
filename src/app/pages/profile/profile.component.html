@@ -1,1 +1,34 @@
-<p>profile works!</p>
+
+<div fxFlexFill fxLayoutAlign="center center">
+    <mat-card>
+        <form [formGroup]="updateForm" (ngSubmit)="update()">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Vezeték név</mat-label>
+                    <input autocomplete="off" formControlName="firstname" type="text" matInput placeholder="Vezeték név">
+                </mat-form-field>
+            </p>
+    
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Kereszt név</mat-label>
+                    <input autocomplete="off" formControlName="lastname" type="text" matInput placeholder="Kereszt név">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" type="email" matInput placeholder="Email">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Jelszó</mat-label>
+                    <input autocomplete="off" formControlName="password" type="password" matInput placeholder="Jelszó">
+                </mat-form-field>
+            </p>
+    
+            <button mat-raised-button color="primary">Regisztrálok</button>
+        </form>
+    </mat-card>
+    </div>

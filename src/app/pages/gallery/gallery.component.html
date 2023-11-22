@@ -1,1 +1,53 @@
-<p>gallery works!</p>
+<div fxFlexFill fxLayoutAlign="center center" class="background">
+ 
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Részletes keresés
+        </mat-panel-title>
+        <mat-panel-description>
+         Szűrés:  {{ selectedemployees}} {{selectedhairStyle}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <mat-select placeholder="Stílus" [formControl]="hairStyle" [(value)]="selectedhairStyle" multiple>
+          <mat-option *ngFor="let hairStyle of hairStyleList" [value]="hairStyle">{{hairStyle}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-select placeholder="Fodrász" [formControl]="employees" [(value)]="selectedemployees" multiple>
+          <mat-option *ngFor="let employees of employeesList" [value]="employees">{{employees}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <section class="example-section" [hidden]="!userLoggedIn">
+        <mat-checkbox class="example-margin">Csak a saját képeim</mat-checkbox>
+      </section>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

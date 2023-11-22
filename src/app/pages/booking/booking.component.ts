@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./booking.component.scss']
 })
 export class BookingComponent {
-
+  hello(type: any, event: any) {
+    if (event.value) {
+      alert(event.value);
+    }
+  }
 }

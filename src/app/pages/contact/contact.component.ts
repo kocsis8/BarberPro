@@ -8,6 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
 
+
+
   contactForm: FormGroup | any;
 
   constructor(private fb: FormBuilder) {}

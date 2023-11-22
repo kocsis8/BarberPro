@@ -1,0 +1,30 @@
+.background{
+    background-image: url('../../../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    max-width: 100%; /* Az oldal maximális szélessége a viewport szélességéig */
+    margin: 0 auto; /* Az oldal középre igazítása */
+}
+
+
+body, html {
+    max-width: 100%; /* Az oldal maximális szélessége a viewport szélességéig */
+    margin: 0 auto; /* Az oldal középre igazítása */
+    max-height: 100%;
+}
+
+
+mat-card{
+    min-width: fit-content;
+    min-height: fit-content;
+    align-items: center;
+    margin: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+    backdrop-filter: blur(50px);
+    background-color: #ffffff36;
+    
+}

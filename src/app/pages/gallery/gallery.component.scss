@@ -1,0 +1,24 @@
+.example-card {
+    max-width: 400px;
+    margin: 3%;
+  }
+
+  .background{
+    background-image: url('../../../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    max-width: 100%; /* Az oldal maximális szélessége a viewport szélességéig */
+    margin: 0 auto; /* Az oldal középre igazítása */
+    min-height: 100%;
+}
+
+.searchCard{
+  min-width: fit-content;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-shadow: 0 0 15px rgb(0, 0, 0);
+  backdrop-filter: blur(50px);
+  background-color: #ffffff36;
+}
