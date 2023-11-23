@@ -3,7 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { NotificationRoutingModule } from './notification-routing.module';
 import { NotificationComponent } from './notification.component';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -11,7 +16,13 @@ import { NotificationComponent } from './notification.component';
   ],
   imports: [
     CommonModule,
-    NotificationRoutingModule
+    NotificationRoutingModule,
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatRadioModule
   ]
 })
 export class NotificationModule { }

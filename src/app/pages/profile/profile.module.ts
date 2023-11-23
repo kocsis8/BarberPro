@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     FlexLayoutModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ]
 })
 export class ProfileModule { }

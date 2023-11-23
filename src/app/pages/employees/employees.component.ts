@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class EmployeesComponent {
 
+  items = ["Kyle","Eric","Bailey", "Deborah", "Glenn", "Jaco", "Joni", "Gigi"]
+  term: string | any;
 }

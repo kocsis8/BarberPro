@@ -19,12 +19,17 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { EmployeesComponent } from './pages/employees/employees.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import {CustomFilterPipe} from './pages/employees/custom-filter.pipe';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    CustomFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -33,9 +38,13 @@ import { EmployeesComponent } from './pages/employees/employees.component';
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
+    MatFormFieldModule,
+    FormsModule,
     MatIconModule,
     FlexLayoutModule,
     MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
     AngularFireModule.initializeApp(environment.firebase),

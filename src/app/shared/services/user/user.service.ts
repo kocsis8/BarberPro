@@ -21,4 +21,38 @@ export class UserService {
     return this.afs.collection<User>(this.collectionNames).doc(userId).valueChanges();
   }
 
+  allEmployeesNames(){
+    return this.afs.collection<User>(this.collectionNames, ref => ref.where('employee', '==', true))
+    .get()
+    .pipe(
+      map(querySnapshot => {
+        const employees: string[] = [];
+
+        querySnapshot.forEach((doc) => {
+          const data = doc.data() as User;
+          employees.push( data.name.firstname +' '+ data.name.lastname  );
+        });
+
+        return employees;
+      })
+    );
+  }
+
+  allEmployees() {
+    return this.afs.collection<User>(this.collectionNames, ref => ref.where('employee', '==', true))
+      .get()
+      .pipe(
+        map(querySnapshot => {
+          const employees: User[] = [];
+
+          querySnapshot.forEach((doc) => {
+            const data = doc.data() as User;
+            employees.push(data);
+          });
+
+          return employees;
+        })
+      );
+  }
+
 }

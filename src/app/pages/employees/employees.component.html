@@ -1,1 +1,11 @@
-<p>employees works!</p>
+<div fxFlexFill fxLayoutAlign="center center" class="background">
+<mat-form-field >
+    <mat-label>Search here</mat-label>
+    <input matInput [(ngModel)]="term">
+  </mat-form-field>
+<div *ngFor="let item of items | customFilter: term">
+		<p>
+			{{item}}
+		</p>
+	</div>
+</div>

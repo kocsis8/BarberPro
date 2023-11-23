@@ -1,1 +1,29 @@
-<p>notification works!</p>
+<div fxFlexFill fxLayoutAlign="center center" class="background">
+    <mat-card>
+        <form [formGroup]="contactForm" (ngSubmit)="send()" type="">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Tárgy</mat-label>
+                    <input autocomplete="off" formControlName="subject" type="subject" matInput placeholder="Tárgy">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Üzenet</mat-label>
+                    <input autocomplete="off" formControlName="message" type="text" matInput placeholder="Üzenet">
+                </mat-form-field>
+            </p>
+           <p>
+            <mat-radio-group aria-label="Select an option" formControlName="notificationType">
+                <p>
+                    <mat-radio-button value="addresses">Csak dolgozóknak</mat-radio-button>
+                </p>
+                <p>
+                <mat-radio-button value="guests">Csak vendégeknek</mat-radio-button>
+            </p>
+            </mat-radio-group>
+           </p>
+            <button mat-raised-button color="primary">Küldés</button>
+        </form>
+    </mat-card>
+</div>

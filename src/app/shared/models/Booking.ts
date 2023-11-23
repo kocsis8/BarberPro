@@ -1,5 +1,7 @@
+import { User } from "./User";
+
 export interface Booking{
     userId: string,
-    employeeId: string,
+    employee: User,
     date:string;
 }
