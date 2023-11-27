@@ -1,11 +1,50 @@
-<div fxFlexFill fxLayoutAlign="center center" class="background">
-<mat-form-field >
-    <mat-label>Search here</mat-label>
-    <input matInput [(ngModel)]="term">
-  </mat-form-field>
-<div *ngFor="let item of items | customFilter: term">
-		<p>
-			{{item}}
-		</p>
-	</div>
+
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" style="height: 100%;" class="background" fxLayoutAlign="center center">
+    <div fxFlex="50%" fxFlex.xs="100%" fxLayoutAlign="center center">
+		<div>
+		<mat-form-field >
+			<mat-label>keresés</mat-label>
+			<input matInput [(ngModel)]="term">
+		  </mat-form-field>
+		
+		<div *ngFor="let employee of employees | customFilter: term">
+			<table id="customers">
+				<tr>
+				  <th>Név</th>
+				  <th>Email</th>
+				  <th>Jog elvétele</th>
+				</tr>
+				<tr>
+				  <td>{{employee.name.firstname}} {{employee.name.lastname}}</td>
+				  <td>{{employee.email}}</td>
+				  <td><mat-icon (click)="removeEmployee(employee.userId)">person_remove</mat-icon></td>
+				</tr>
+			  </table>
+			</div>
+		</div>
+    </div>
+    <div fxFlex="50%" fxFlex.xs="100%" fxLayoutAlign="center center">
+		<div>
+			<mat-form-field >
+				<mat-label>keresés</mat-label>
+				<input matInput [(ngModel)]="term2">
+			  </mat-form-field>
+			
+			<div *ngFor="let user of users | customFilter: term2">
+				<table id="customers">
+					<tr>
+					  <th>Név</th>
+					  <th>Email</th>
+					  <th>Jog adása</th>
+					</tr>
+					<tr>
+					  <td>{{user.name.firstname}} {{user.name.lastname}}</td>
+					  <td>{{user.email}}</td>
+					  <td><mat-icon (click)="addEmployee(user.userId)">person_add</mat-icon></td>
+					</tr>
+				  </table>
+				</div>
+			</div>
+    </div>
 </div>

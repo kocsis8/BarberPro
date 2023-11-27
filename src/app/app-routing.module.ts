@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'contact', loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule) },
   { path: 'booking', loadChildren: () => import('./pages/booking/booking.module').then(m => m.BookingModule) , canActivate: [AuthGuardService] },
   { path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule) , canActivate: [AuthGuardService] },
+  { path: 'upload', loadChildren: () => import('./pages/upload/upload.module').then(m => m.UploadModule) , canActivate: [AuthGuardService] },
   { path: 'employees', loadChildren: () => import('./pages/employees/employees.module').then(m => m.EmployeesModule) , canActivate: [AuthGuardService] },
   { path: 'notification', loadChildren: () => import('./pages/notification/notification.module').then(m => m.NotificationModule) , canActivate: [AuthGuardService] },
   {

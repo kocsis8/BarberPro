@@ -34,7 +34,7 @@ export class AuthService {
             )
             .subscribe(isEmployee => {
               this.isEmployee.next(isEmployee);
-              console.log("isEmployee "+isEmployee);
+              
             });
 
           } else {
@@ -72,9 +72,9 @@ export class AuthService {
    
     this.userLoggedIn.next(false);
     this.userId ="";
-    this.isEmployee.next(false);
-    this.router.navigate(['/login']); 
+    this.isEmployee.next(false); 
     this.afAuth.signOut();
+    this.router.navigate(['/login']);
 
   }
 

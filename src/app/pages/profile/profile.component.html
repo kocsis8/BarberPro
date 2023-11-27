@@ -26,14 +26,14 @@
           
             <!-- Date Column -->
             <ng-container matColumnDef="date">
-              <th mat-header-cell *matHeaderCellDef> Dátum </th>
-              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+              <th mat-header-cell *matHeaderCellDef> Időpont </th>
+              <td mat-cell *matCellDef="let element"> {{element.date}} {{element.time}} </td>
             </ng-container>
           
             <!-- Employee Name Column -->
             <ng-container matColumnDef="employeeName">
               <th mat-header-cell *matHeaderCellDef> Fodrász </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.employeeName}} </td>
             </ng-container>
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

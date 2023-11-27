@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { UploadImage } from 'src/app/shared/models/UploadImage';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { UploadService } from 'src/app/shared/services/upload/upload.service';
 import { UserService } from 'src/app/shared/services/user/user.service';
 
 @Component({
@@ -19,9 +21,11 @@ export class GalleryComponent implements OnInit{
   employeesList: string[] = [];
   selectedemployees = "";
 
+  images: UploadImage[] = [];
+
   panelOpenState = false;
   userLoggedIn = false;
-  constructor(public authService: AuthService, public userService: UserService){
+  constructor(public authService: AuthService, public userService: UserService,public uploadService: UploadService){
     this.userLoggedIn =  authService.userLoggedIn.value;
     console.log(this.userLoggedIn);
   }
@@ -29,5 +33,10 @@ export class GalleryComponent implements OnInit{
     this.userService.allEmployeesNames().subscribe((names) => {
       this.employeesList = names;
     });
+
+    this.uploadService.getAllImages().subscribe((images) =>{
+    this.images=images;
+    });
+    
   }
 }

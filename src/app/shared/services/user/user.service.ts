@@ -21,6 +21,14 @@ export class UserService {
     return this.afs.collection<User>(this.collectionNames).doc(userId).valueChanges();
   }
 
+  updateUser(userId: string, updatedData: Partial<User>): Promise<void> {
+    // Az AngularFirestore-on keresztül hivatkozunk a felhasználó dokumentumára
+    const employeeRef = this.afs.collection<User>(this.collectionNames).doc(userId);
+
+    // Frissítjük a dokumentumot az új adatokkal
+    return employeeRef.update(updatedData);
+  }
+
   allEmployeesNames(){
     return this.afs.collection<User>(this.collectionNames, ref => ref.where('employee', '==', true))
     .get()
@@ -40,6 +48,23 @@ export class UserService {
 
   allEmployees() {
     return this.afs.collection<User>(this.collectionNames, ref => ref.where('employee', '==', true))
+      .get()
+      .pipe(
+        map(querySnapshot => {
+          const employees: User[] = [];
+
+          querySnapshot.forEach((doc) => {
+            const data = doc.data() as User;
+            employees.push(data);
+          });
+
+          return employees;
+        })
+      );
+  }
+
+  allUsers() {
+    return this.afs.collection<User>(this.collectionNames, ref => ref.where('employee', '==', false))
       .get()
       .pipe(
         map(querySnapshot => {
