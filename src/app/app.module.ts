@@ -18,20 +18,20 @@ import { provideStorage,getStorage } from '@angular/fire/storage'
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { EmployeesComponent } from './pages/employees/employees.component';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import {CustomFilterPipe} from './pages/employees/custom-filter.pipe';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import { EmailService } from './shared/services/email/email.service';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EmployeesComponent,
-    CustomFilterPipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +47,8 @@ import { MatInputModule } from '@angular/material/input';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
+    HttpClientModule,
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -55,7 +57,9 @@ import { MatInputModule } from '@angular/material/input';
     provideStorage(() => getStorage())
     
   ],
-  providers: [],
+  providers: [
+    EmailService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

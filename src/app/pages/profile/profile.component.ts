@@ -35,7 +35,6 @@ dataSource = this.bookings;
     
         if (this.user) {
           this.bookingService.getBookingsByUserId(this.user.id).subscribe(bookings => {
-            console.log(bookings)
             this.dataSource = bookings;
           });
         }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { EmployeeView } from 'src/app/shared/models/EmployeeView';
+import { Booking } from 'src/app/shared/models/Booking';
 import { User } from 'src/app/shared/models/User';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { UserService } from 'src/app/shared/services/user/user.service';
@@ -79,13 +79,18 @@ addEmployee(userId: any) {
   
 
   
+displayedColumns: string[] = ['name','email',"add"];
 
-  employees: EmployeeView[] | any;
-  
-  users: EmployeeView[] | any;
+employees: User[] = [];
+dataSource_employee = this.employees;
+
+users: User[] = [];
+dataSource_user = this.users;
 
   term: string | any;
   term2: string | any;
+
+
 
   constructor( public userService: UserService, public authService: AuthService, public snackBar: MatSnackBar){
    
@@ -97,30 +102,20 @@ addEmployee(userId: any) {
 
   fillEmployeeTable() {
     this.userService.allEmployees().subscribe(
-      (employees) => {
-        // Az employees tömböt feltöltjük az EmployeeView típusú adatokkal
-        this.employees = employees.map((employee) => {
-          return {
-            userId: employee.id,
-            email: employee.email,
-            name: employee.name
-          };
-        });
-      });
+      employees => {
+        this.dataSource_employee = employees;
+       
+      }
+    );
+    
   }
 
   fillUserTable(){
     this.userService.allUsers().subscribe(
-      (users) => {
-        // Az employees tömböt feltöltjük az EmployeeView típusú adatokkal
-        this.users = users.map((user) => {
-          return {
-            userId: user.id,
-            email: user.email,
-            name: user.name
-          };
-        });
-      });
+      users => {
+        this.dataSource_user = users;
+      }
+    );
   }
 
 

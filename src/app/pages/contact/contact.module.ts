@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -34,7 +35,8 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     FlexLayoutModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSnackBarModule
     ]
 })
 export class ContactModule { }

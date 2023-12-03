@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatRadioModule} from '@angular/material/radio';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule
   ]
 })
 export class NotificationModule { }
