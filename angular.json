@@ -90,6 +90,9 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
+              "querystring-es3",
+              "browserify-zlib",
+              "path-browserify",
               "zone.js",
               "zone.js/testing"
             ],
