@@ -1,15 +1,12 @@
 // webpack.config.js
 module.exports = {
-    resolve: {
-      fallback: {
-        "fs": false,
-        "path": false,
-        "zlib": require.resolve("browserify-zlib"),
-        "net": false,
-        "dns": false,
-        "child_process": false,
-        "tls": false
-      }
-    }
+  resolve: {
+    fallback: {
+      querystring: require.resolve('querystring-es3'),
+      path: require.resolve('path-browserify'),
+      zlib: require.resolve('browserify-zlib'),
+      process: require.resolve('process/browser'),
+    },
+  }  
   };
   

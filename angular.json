@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "BarberPro:build:production"
+              "browserTarget": "BarberPro:build:production"
             },
             "development": {
-              "buildTarget": "BarberPro:build:development"
+              "browserTarget": "BarberPro:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "BarberPro:build"
+            "browserTarget": "BarberPro:build"
           }
         },
         "test": {

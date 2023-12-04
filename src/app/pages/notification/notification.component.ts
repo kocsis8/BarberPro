@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/shared/models/User';
 import { EmailService } from 'src/app/shared/services/email/email.service';
+import { GmailService } from 'src/app/shared/services/email/gmail.service';
 import { UserService } from 'src/app/shared/services/user/user.service';
 
 @Component({
@@ -22,8 +23,9 @@ send() {
       });
     }
 
-    //this.emailService.sendEmail();
+    
     if(type == "employees"){
+      this.gmailService.sendEmail("teszt tárgy","teszt szöveg","kocsis.marton.pal@gmail.com");
       this.emploees.forEach(element => {
 
       });
@@ -44,7 +46,7 @@ send() {
   users:User[] = [];
     
 
-  constructor(private fb: FormBuilder,public userService: UserService,public emailService: EmailService, public snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder,public userService: UserService,public emailService: EmailService, public snackBar: MatSnackBar,private gmailService: GmailService) {
     this.contactForm = this.fb.group({
       subject: ['', [Validators.required]],
       message: ['', [Validators.required]],
